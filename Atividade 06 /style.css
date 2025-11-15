@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base do corpo e tipografia */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px; 
+  color: #EEEEEE;
+  background-color: #0b1020;
+  line-height: 1.5;
+}
+
+/* Header */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, rgba(14,18,30,0.95), rgba(6,8,15,0.95));
+  z-index: 50;
+}
+
+/* Logo */
+.logo h1 {
+  font-size: 1.6rem;
+  color: #fff;
+}
+.slogan {
+  font-size: 0.9rem;
+  color: #9aa3b2;
+}
+
+/* Menu interativo: estilização e hover */
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+.menu a {
+  text-decoration: none;
+  color: #dbe6ff;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.menu a:hover, .menu a:focus {
+  background-color: rgba(255,255,255,0.04);
+  transform: translateY(-3px);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 40px;
+  align-items: center;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+}
+.primary {
+  background-color: #0066ff;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6); /* box-shadow - usado para efeito visual */
+  transition: transform 250ms ease;
+}
+.primary:hover {
+  transform: scale(1.03);
+}
+
+.consoles {
+  padding: 30px;
+}
+.console-card {
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.jogos {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+}
+.jogo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 220px;
+}
+.jogo img {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.jogo-info h4 {
+  font-size: 1rem;
+}
+.meta {
+  font-size: 0.8rem;
+  color: #aab2c3;
+}
+
+/* Galeria em grid */
+.galeria {
+  padding: 24px;
+}
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.galeria-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  clip-path: inset(0 0 6% 0 round 8px);
+  transition: filter 300ms ease;
+}
+.galeria-item img:hover {
+  filter: saturate(1.2) contrast(1.05);
+}
+
+/* Videos and audio */
+.videos iframe {
+  width: 48%;
+  height: 320px;
+  border: none;
+  margin: 10px;
+}
+.audio audio {
+  display: block;
+  margin: 8px 0;
+  width: 100%;
+}
+
+/* Artigos e posts */
+.artigos {
+  padding: 24px;
+}
+.post {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-left: 4px solid rgba(0,102,255,0.6);
+}
+
+/* Footer and form */
+.rodape {
+  padding: 30px;
+  background-color: #04050a;
+}
+.form-contato label {
+  display: block;
+  margin: 6px 0 4px;
+}
+.form-contato input, .form-contato textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #dfe7ff;
+  border-radius: 6px;
+}
+.form-contato button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+/* Responsividade: media queries */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .menu ul { flex-direction: column; }
+  .videos iframe { width: 100%; height: 210px; }
+}
+
+/* ANIMAÇÃO: usando animation (MDN property 7/10) */
+.logo h1 {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero-media img {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen; 
+  opacity: 0.95;
+}
+
+/* backdrop-filter para dar efeito atrás de transparências */
+.cabecalho {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.console-card {
+  perspective: 800px;
+}
+.console-card:hover {
+  transform: rotateY(2deg);
+}
+
+a:focus {
+  outline: 3px dashed rgba(0,102,255,0.6);
+}
